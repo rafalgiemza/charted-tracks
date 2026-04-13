@@ -1,4 +1,4 @@
-# PRD — ChartPulse
+# PRD — ChartedTracks
 
 > **Dokument:** Product Requirements Document  
 > **Wersja:** 1.0  
@@ -9,7 +9,7 @@
 
 ## 1. Cel produktu
 
-ChartPulse to aplikacja webowa do wizualizacji historii list przebojów muzycznych. Użytkownik może sprawdzić, jak dana piosenka radziła sobie na listach przebojów w różnych krajach — kiedy debiutowała, jak długo pozostawała w Top 10, jaki był jej szczyt popularności.
+ChartedTracks to aplikacja webowa do wizualizacji historii list przebojów muzycznych. Użytkownik może sprawdzić, jak dana piosenka radziła sobie na listach przebojów w różnych krajach — kiedy debiutowała, jak długo pozostawała w Top 10, jaki był jej szczyt popularności.
 
 Aplikacja jest przeznaczona do portfolio fullstack developera i musi demonstrować:
 
@@ -73,7 +73,7 @@ Chce wkleić listę ulubionych piosenek i otrzymać analizę swojego gustu muzyc
 
 ### V3 — AI Music Taste Analyzer
 
-**Cel:** viralowy feature portfolio — analiza gustu muzycznego oparta na danych ChartPulse.
+**Cel:** viralowy feature portfolio — analiza gustu muzycznego oparta na danych ChartedTracks.
 
 **Co wchodzi:**
 
@@ -225,7 +225,7 @@ POST /api/ai/taste                   → V3: analiza gustu (Server Action)
 ## 10. Struktura projektu
 
 ```
-chartpulse/
+charted-tracks/
 ├── app/
 │   ├── (routes)/
 │   │   ├── page.tsx                  ← strona główna

@@ -14,9 +14,11 @@ export const revalidate = 86400;
 
 type Params = { slug: string };
 
-export async function generateMetadata(
-  { params }: { params: Promise<Params> }
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const data = await getArtistPageData(slug);
   if (!data) return { title: "Artist not found" };
@@ -26,13 +28,13 @@ export async function generateMetadata(
       ? `${data.name} has had ${data.stats.totalSongs} songs on the charts, ` +
         `with a best peak of #${data.stats.bestPeak} and ` +
         `${data.stats.totalWeeksOnChart} total weeks on chart.`
-      : `Chart history for ${data.name} on ChartPulse.`;
+      : `Chart history for ${data.name} on ChartedTracks.`;
 
   return {
-    title: `${data.name} — Chart History | ChartPulse`,
+    title: `${data.name} — Chart History | ChartedTracks`,
     description: desc,
     openGraph: {
-      title: `${data.name} on ChartPulse`,
+      title: `${data.name} on ChartedTracks`,
       description: desc,
     },
   };
@@ -42,9 +44,11 @@ export async function generateMetadata(
 // Page
 // ---------------------------------------------------------------------------
 
-export default async function ArtistPage(
-  { params }: { params: Promise<Params> }
-) {
+export default async function ArtistPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   const { slug } = await params;
   const data = await getArtistPageData(slug);
 
@@ -52,7 +56,6 @@ export default async function ArtistPage(
 
   return (
     <main className="container mx-auto max-w-3xl px-4 py-10 space-y-10">
-
       {/* Breadcrumb */}
       <nav className="text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">
@@ -70,7 +73,6 @@ export default async function ArtistPage(
 
       {/* Discography */}
       <DiscographyTable discography={data.discography} />
-
     </main>
   );
 }

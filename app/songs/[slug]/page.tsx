@@ -17,15 +17,17 @@ export const revalidate = 86400;
 // ---------------------------------------------------------------------------
 type Params = { slug: string };
 
-export async function generateMetadata(
-  { params }: { params: Promise<Params> }
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const song = await getSongBySlug(slug);
   if (!song) return { title: "Song not found" };
 
   return {
-    title: `${song.title} – ${song.artist.name} | ChartPulse`,
+    title: `${song.title} – ${song.artist.name} | ChartedTracks`,
     description: `See how "${song.title}" by ${song.artist.name} performed on the charts. Peak position, weeks on chart and full chart history.`,
     openGraph: {
       title: `${song.title} – ${song.artist.name}`,
@@ -38,9 +40,11 @@ export async function generateMetadata(
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-export default async function SongPage(
-  { params }: { params: Promise<Params> }
-) {
+export default async function SongPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   const { slug } = await params;
 
   const song = await getSongBySlug(slug);
@@ -52,7 +56,6 @@ export default async function SongPage(
 
   return (
     <main className="container mx-auto max-w-3xl px-4 py-10">
-
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">
@@ -84,7 +87,9 @@ export default async function SongPage(
         )}
 
         <div className="min-w-0">
-          <h1 className="text-3xl font-bold tracking-tight truncate">{song.title}</h1>
+          <h1 className="text-3xl font-bold tracking-tight truncate">
+            {song.title}
+          </h1>
           <Link
             href={`/artists/${song.artist.slug}`}
             className="text-muted-foreground hover:text-foreground transition-colors mt-1 inline-block"
@@ -111,7 +116,9 @@ export default async function SongPage(
 
           <div className="rounded-lg border border-border bg-card p-5">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-semibold text-sm">Chart position over time</h2>
+              <h2 className="font-semibold text-sm">
+                Chart position over time
+              </h2>
               <div className="flex gap-2">
                 {histories.map((h) => (
                   <span
@@ -127,7 +134,8 @@ export default async function SongPage(
             <ChartLine histories={histories} />
 
             <p className="text-xs text-muted-foreground text-center mt-3">
-              Y-axis: chart position (lower = better). Gaps indicate weeks off chart.
+              Y-axis: chart position (lower = better). Gaps indicate weeks off
+              chart.
             </p>
           </div>
         </div>
@@ -146,7 +154,6 @@ export default async function SongPage(
           </p>
         </section>
       )}
-
     </main>
   );
 }

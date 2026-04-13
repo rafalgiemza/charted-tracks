@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+import type { TooltipContentProps } from "recharts";
 import type { SongChartHistory } from "@/lib/queries/charts";
 import { ChartTooltip } from "./ChartTooltip";
 
@@ -46,7 +47,7 @@ export function ChartLine({ histories, yDomain = 40 }: Props) {
 
   // zbuduj wspólną tablicę punktów z kluczami per kraj
   // { date, dateLabel, GB: 3, US: 5, ... }
-  type MergedPoint = { date: string; dateLabel: string } & Record<string, number>;
+  type MergedPoint = { date: string; dateLabel: string; [key: string]: string | number };
 
   const merged: MergedPoint[] = allDates.map((date) => {
     const base: MergedPoint = {
@@ -92,7 +93,7 @@ export function ChartLine({ histories, yDomain = 40 }: Props) {
         />
 
         <Tooltip
-          content={(props) => (
+          content={(props: TooltipContentProps<number, string>) => (
             <ChartTooltip
               {...props}
               countryCode={histories.length === 1 ? histories[0].countryCode : undefined}

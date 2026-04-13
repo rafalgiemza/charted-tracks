@@ -36,7 +36,7 @@ export function parseCsv(relativePath: string): CsvRow[] {
 
     const row = Object.fromEntries(
       headers.map((header, idx) => [header, values[idx]])
-    ) as CsvRow;
+    ) as unknown as CsvRow;
 
     rows.push(row);
   }

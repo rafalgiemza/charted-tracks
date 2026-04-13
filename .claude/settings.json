@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/rafal/.claude/projects/c--Users-rafal-Projects-charted-tracks/b72a51a8-ee9c-4d74-91b5-eb9d8f8cad86/tool-results/**)",
+      "Bash(cat /c/Users/rafal/Projects/charted-tracks/app/songs/[slug]/page.tsx)",
+      "Bash(cat /c/Users/rafal/Projects/charted-tracks/app/artists/[slug]/page.tsx)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm typecheck:*)"
+    ]
+  }
+}

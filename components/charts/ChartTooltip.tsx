@@ -1,9 +1,9 @@
 "use client";
 
-import type { TooltipProps } from "recharts";
+import type { TooltipContentProps } from "recharts";
 import type { ChartDataPoint } from "@/lib/queries/charts";
 
-type Props = TooltipProps<number, string> & {
+type Props = TooltipContentProps<number, string> & {
   countryCode?: string;
 };
 
