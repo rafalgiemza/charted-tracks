@@ -3,7 +3,7 @@
 import type { TooltipContentProps } from "recharts";
 import type { ChartDataPoint } from "@/lib/queries/charts";
 
-type Props = TooltipContentProps<number, string> & {
+type Props = TooltipContentProps & {
   countryCode?: string;
 };
 

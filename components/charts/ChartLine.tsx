@@ -10,7 +10,6 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import type { TooltipContentProps } from "recharts";
 import type { SongChartHistory } from "@/lib/queries/charts";
 import { ChartTooltip } from "./ChartTooltip";
 
@@ -93,7 +92,7 @@ export function ChartLine({ histories, yDomain = 40 }: Props) {
         />
 
         <Tooltip
-          content={(props: TooltipContentProps<number, string>) => (
+          content={(props) => (
             <ChartTooltip
               {...props}
               countryCode={histories.length === 1 ? histories[0].countryCode : undefined}

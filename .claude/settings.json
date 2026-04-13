@@ -5,7 +5,8 @@
       "Bash(cat /c/Users/rafal/Projects/charted-tracks/app/songs/[slug]/page.tsx)",
       "Bash(cat /c/Users/rafal/Projects/charted-tracks/app/artists/[slug]/page.tsx)",
       "Bash(pnpm install:*)",
-      "Bash(pnpm typecheck:*)"
+      "Bash(pnpm typecheck:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
